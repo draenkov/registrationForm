@@ -1,0 +1,139 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  min-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+.form p {
+  color: rgb(87, 87, 87);
+  font-size: 12px;
+}
+.form .submitBtn {
+  width: 100%;
+  height: 36px;
+  margin: 5px 0;
+  padding: 0 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  background: rgb(202, 27, 62);
+  color: white;
+  cursor: pointer;
+}
+.form .form__field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form .form__field input {
+  width: 100%;
+  height: 36px;
+  margin: 5px 0;
+  padding: 0 10px;
+  border: 1px rgb(87, 87, 87) solid;
+  border-radius: 20px;
+  font-size: 16px;
+}
+.form .form__field textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px 10px;
+  border: 1px rgb(87, 87, 87) solid;
+  border-radius: 20px;
+  font-size: 16px;
+  resize: none;
+}
+.form .form__field textarea::-webkit-scrollbar {
+  width: 5px;
+}
+.form .form__field textarea::-webkit-scrollbar-thumb {
+  background: rgb(192, 192, 192);
+  border-radius: 10px;
+}
+.form .input__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.form .submitInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.form .error {
+  margin-left: 10px;
+  color: rgb(202, 27, 62);
+}
+.form .success {
+  margin-left: 10px;
+  color: rgb(0, 127, 49);
+}
+
+.loading {
+  position: absolute;
+  width: 20%;
+  min-width: 300px;
+  height: 100%;
+  background: rgb(117, 117, 117);
+  opacity: 0.6;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+.spinner .path {
+  stroke: #fff;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .loading {
+    width: 100%;
+  }
+}
+@media (max-width: 340px) {
+  .form {
+    min-width: 200px;
+  }
+}
+
+/*# sourceMappingURL=Form.css.map */

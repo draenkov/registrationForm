@@ -79,6 +79,14 @@
   opacity: 1;
   transition: all 1s ease;
 }
+.form .failure {
+  position: absolute;
+  font-size: 15px;
+  color: rgb(202, 27, 62);
+  font-weight: 700;
+  opacity: 1;
+  transition: all 1s ease;
+}
 .form .hidden {
   opacity: 0;
   visibility: hidden;

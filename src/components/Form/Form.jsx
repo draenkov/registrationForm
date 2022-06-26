@@ -9,7 +9,7 @@ import { PhoneInput } from './Inputs/PhoneInput';
 
 export const Form = () => {
   // Submit
-  const [isSuccessful, setIsSuccessful] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [shouldReset, setShouldReset] = useState(false);
   const [loading, setLoading] = useState(false);

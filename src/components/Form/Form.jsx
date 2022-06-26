@@ -59,10 +59,6 @@ export const Form = () => {
           setLoading(false);
         }}
         ref={form}
-        // onReset={() => {
-        //   console.log('test');
-        //   setShouldReset(false);
-        // }}
       >
         <NameInput
           nameError={nameError}

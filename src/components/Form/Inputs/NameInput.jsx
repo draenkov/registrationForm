@@ -23,6 +23,9 @@ export const NameInput = ({
       setNameError('cannot be empty');
       return;
     }
+    if (!/[a-zA-Z]/.test(name)) {
+      setNameError('only Latin letters');
+    }
     if (arr.length > 1 && arr.includes('')) {
       setNameError('only 1 space');
       return;

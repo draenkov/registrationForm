@@ -2,11 +2,9 @@ import PropTypes from 'prop-types';
 
 export const SubmitBtn = ({ isSuccessful, isSubmitted }) => (
   <div className="submitInput">
-    {isSubmitted ? (
-      <p className={isSuccessful ? 'success' : 'error'}>
-        {isSuccessful ? 'Success!' : 'Something goes wrong'}
-      </p>
-    ) : null}
+    <p className={isSuccessful && isSubmitted ? 'success' : 'success hidden'}>
+      {isSuccessful ? 'Success!' : 'Something goes wrong'}
+    </p>
 
     <input className="submitBtn form__btn" type="submit" value="Submit" />
   </div>

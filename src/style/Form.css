@@ -55,6 +55,9 @@
   background: rgb(192, 192, 192);
   border-radius: 10px;
 }
+.form .messageInput {
+  margin-bottom: 0;
+}
 .form .input__title {
   display: flex;
   flex-direction: row;
@@ -63,20 +66,27 @@
 .form .submitInput {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 .form .error {
   margin-left: 10px;
   color: rgb(202, 27, 62);
 }
 .form .success {
-  margin-left: 10px;
+  font-size: 15px;
   color: rgb(0, 127, 49);
+  font-weight: 700;
+  opacity: 1;
+  transition: all 1s ease;
+}
+.form .hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .loading {
   position: absolute;
-  width: 20%;
+  width: 100%;
   min-width: 300px;
   height: 100%;
   background: rgb(117, 117, 117);

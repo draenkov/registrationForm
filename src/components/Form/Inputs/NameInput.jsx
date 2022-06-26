@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-export const NameInput = ({ nameError, setNameError, shouldReset }) => {
+export const NameInput = ({
+  nameError,
+  setNameError,
+  shouldReset,
+  setShouldReset,
+}) => {
   const [name, setName] = useState('');
   const [nameDirty, setNameDirty] = useState(false);
 
   useEffect(() => {
     if (shouldReset) {
       setName('');
+      setShouldReset(false);
     }
   }, [shouldReset]);
 
@@ -65,4 +71,5 @@ NameInput.propTypes = {
   nameError: PropTypes.string.isRequired,
   setNameError: PropTypes.func.isRequired,
   shouldReset: PropTypes.bool.isRequired,
+  setShouldReset: PropTypes.func.isRequired,
 };

@@ -5,6 +5,7 @@ export const MessageInput = ({
   messageError,
   setMessageError,
   shouldReset,
+  setShouldReset,
 }) => {
   const [message, setMessage] = useState('');
   const [messageDirty, setMessageDirty] = useState(false);
@@ -12,6 +13,7 @@ export const MessageInput = ({
   useEffect(() => {
     if (shouldReset) {
       setMessage('');
+      setShouldReset(false);
     }
   }, [shouldReset]);
 
@@ -57,4 +59,5 @@ MessageInput.propTypes = {
   messageError: PropTypes.string.isRequired,
   setMessageError: PropTypes.func.isRequired,
   shouldReset: PropTypes.bool.isRequired,
+  setShouldReset: PropTypes.func.isRequired,
 };

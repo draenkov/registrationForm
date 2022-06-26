@@ -5,6 +5,7 @@ export const BirthdayInput = ({
   birthdayError,
   setBirthdayError,
   shouldReset,
+  setShouldReset,
 }) => {
   const [birthday, setBirthday] = useState('');
   const [birthdayDirty, setBirthdayDirty] = useState(false);
@@ -12,6 +13,7 @@ export const BirthdayInput = ({
   useEffect(() => {
     if (shouldReset) {
       setBirthday('');
+      setShouldReset(false);
     }
   }, [shouldReset]);
 
@@ -48,4 +50,5 @@ BirthdayInput.propTypes = {
   birthdayError: PropTypes.string.isRequired,
   setBirthdayError: PropTypes.func.isRequired,
   shouldReset: PropTypes.bool.isRequired,
+  setShouldReset: PropTypes.func.isRequired,
 };

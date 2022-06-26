@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-export const EmailInput = ({ emailError, setEmailError, shouldReset }) => {
+export const EmailInput = ({
+  emailError,
+  setEmailError,
+  shouldReset,
+  setShouldReset,
+}) => {
   const [email, setEmail] = useState('');
   const [emailDirty, setEmailDirty] = useState(false);
 
   useEffect(() => {
     if (shouldReset) {
       setEmail('');
+      setShouldReset(false);
     }
   }, [shouldReset]);
 
@@ -57,4 +63,5 @@ EmailInput.propTypes = {
   emailError: PropTypes.string.isRequired,
   setEmailError: PropTypes.func.isRequired,
   shouldReset: PropTypes.bool.isRequired,
+  setShouldReset: PropTypes.func.isRequired,
 };

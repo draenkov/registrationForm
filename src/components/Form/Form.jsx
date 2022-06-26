@@ -55,6 +55,7 @@ export const Form = () => {
           setIsSubmitted(true);
           setTimeout(() => {
             setIsSubmitted(false);
+            setIsSuccessful(false);
           }, 5000);
           setLoading(false);
         }}
@@ -64,26 +65,31 @@ export const Form = () => {
           nameError={nameError}
           setNameError={setNameError}
           shouldReset={shouldReset}
+          setShouldReset={setShouldReset}
         />
         <EmailInput
           emailError={emailError}
           setEmailError={setEmailError}
           shouldReset={shouldReset}
+          setShouldReset={setShouldReset}
         />
         <PhoneInput
           phoneError={phoneError}
           setPhoneError={setPhoneError}
           shouldReset={shouldReset}
+          setShouldReset={setShouldReset}
         />
         <BirthdayInput
           birthdayError={birthdayError}
           setBirthdayError={setBirthdayError}
           shouldReset={shouldReset}
+          setShouldReset={setShouldReset}
         />
         <MessageInput
           messageError={messageError}
           setMessageError={setMessageError}
           shouldReset={shouldReset}
+          setShouldReset={setShouldReset}
         />
         <SubmitBtn isSuccessful={isSuccessful} isSubmitted={isSubmitted} />
       </form>

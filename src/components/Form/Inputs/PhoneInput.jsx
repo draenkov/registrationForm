@@ -2,13 +2,19 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import NumberFormat from 'react-number-format';
 
-export const PhoneInput = ({ phoneError, setPhoneError, shouldReset }) => {
+export const PhoneInput = ({
+  phoneError,
+  setPhoneError,
+  shouldReset,
+  setShouldReset,
+}) => {
   const [phone, setPhone] = useState('');
   const [phoneDirty, setPhoneDirty] = useState(false);
 
   useEffect(() => {
     if (shouldReset) {
       setPhone('');
+      setShouldReset(false);
     }
   }, [shouldReset]);
 
@@ -47,4 +53,5 @@ PhoneInput.propTypes = {
   phoneError: PropTypes.string.isRequired,
   setPhoneError: PropTypes.func.isRequired,
   shouldReset: PropTypes.bool.isRequired,
+  setShouldReset: PropTypes.func.isRequired,
 };

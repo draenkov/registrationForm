@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Feedback Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A test task for Seobility
 
-## Available Scripts
+## Task condition
+### Create a feedback form with the following fields:
+- First name, Last name
+- Email
+- Phone number (with Russian number mask)
+- Date of Birth
+- Message
 
-In the project directory, you can run:
+### Form requirements:
+1. Validation
+  - The field “First Name, Last Name” can consist only of 2 words (first name and last name) of the Latin alphabet. The minimum length of each word is 3 characters, the maximum is 30. There can only be 1 space between words. Characters must be entered in upper case.
+  - E-mail must be valid (browser validation must be disabled).
+  - Use the Russian number mask for the phone number.
+  - Date of birth entering through the calendar.
+  -The Message field has a minimum length of 10 characters and a maximum length of 300.
+2. Form submission
+- Submission occurs by ajax request to the server. The response should contain json with 2 possible statuses: error/success and error text/”successful submission”. The response must be processed on the front and the corresponding message should be displayed under the form.
+- The form cannot be resubmitted, until a response is received from the server.
+- Clear all form fields, in case of a successful response from the server.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All validation must be written independently, without the use of third-party libraries.
+Form fields must be validated during entry and before being sent to the server.
+If the field does not pass validation, display an appropriate message below the field.
+The code must be uploaded to a remote, public repository.

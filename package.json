@@ -1,7 +1,7 @@
 {
-  "name": "test-seobility",
+  "name": "registration-form",
   "version": "0.1.0",
-  "homepage": "https://draenkov.github.io/feedbackForm/",
+  "homepage": "https://draenkov.github.io/registrationform/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

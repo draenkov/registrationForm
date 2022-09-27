@@ -5,11 +5,14 @@ import {
   emailSelector,
   isEmailCorrectSelector,
   isEmailDirtySelector,
+  isPassword2CorrectSelector,
+  isPassword2DirtySelector,
   isPasswordCorrectSelector,
   isPasswordDirtySelector,
   isSignUpValidSelector,
   isTelCorrectSelector,
   isTelDirtySelector,
+  password2Selector,
   passwordSelector,
   telSelector,
 } from '../../../store/selectors/search.selector';
@@ -19,12 +22,15 @@ import {
   setEmail,
   setIsEmailCorrect,
   setIsEmailDirty,
+  setIsPassword2Correct,
+  setIsPassword2Dirty,
   setIsPasswordCorrect,
   setIsPasswordDirty,
   setIsSignUpValid,
   setIsTelCorrect,
   setIsTelDirty,
   setPassword,
+  setPassword2,
   setTel,
 } from '../../../store/actions/signUp/signUp.actions';
 
@@ -33,21 +39,29 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
   const tel = useSelector(telSelector);
   const email = useSelector(emailSelector);
   const password = useSelector(passwordSelector);
+  const password2 = useSelector(password2Selector);
   const isTelDirty = useSelector(isTelDirtySelector);
   const isEmailDirty = useSelector(isEmailDirtySelector);
   const isPasswordDirty = useSelector(isPasswordDirtySelector);
+  const isPassword2Dirty = useSelector(isPassword2DirtySelector);
   const isTelCorrect = useSelector(isTelCorrectSelector);
   const isEmailCorrect = useSelector(isEmailCorrectSelector);
   const isPasswordCorrect = useSelector(isPasswordCorrectSelector);
+  const isPassword2Correct = useSelector(isPassword2CorrectSelector);
   const isSignUpValid = useSelector(isSignUpValidSelector);
 
   useEffect(() => {
-    if (!isTelCorrect || !isEmailCorrect || !isPasswordCorrect) {
+    if (
+      !isTelCorrect ||
+      !isEmailCorrect ||
+      !isPasswordCorrect ||
+      !isPassword2Correct
+    ) {
       dispatch(setIsSignUpValid(false));
     } else {
       dispatch(setIsSignUpValid(true));
     }
-  }, [isTelCorrect, isEmailCorrect, isPasswordCorrect]);
+  }, [isTelCorrect, isEmailCorrect, isPasswordCorrect, isPassword2Correct]);
 
   const inputTypes = ['mobilePhone', 'email', 'password'];
 
@@ -61,6 +75,9 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
         break;
       case 'password':
         dispatch(setIsPasswordDirty(true));
+        break;
+      case 'password2':
+        dispatch(setIsPassword2Dirty(true));
         break;
       default:
     }
@@ -98,6 +115,16 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
     }
   };
 
+  const passwordRepeatHandler = (e) => {
+    dispatch(setPassword2(e.target.value));
+    const inputValue = String(e.target.value);
+    if (inputValue === password) {
+      dispatch(setIsPassword2Correct(true));
+    } else {
+      dispatch(setIsPassword2Correct(false));
+    }
+  };
+
   return (
     <form className="signUpForm">
       <input
@@ -130,6 +157,18 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
         value={password}
         className={
           !isPasswordCorrect && isPasswordDirty ? 'uncorrect' : 'correct'
+        }
+      />
+      <input
+        type="password"
+        name={inputTypes[2] + 2}
+        placeholder="Repeat password"
+        required={validation[inputTypes[2]].required}
+        onChange={(e) => passwordRepeatHandler(e)}
+        onBlur={(e) => blurHandler(e)}
+        value={password2}
+        className={
+          !isPassword2Correct && isPassword2Dirty ? 'uncorrect' : 'correct'
         }
       />
       <button

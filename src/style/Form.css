@@ -1,15 +1,22 @@
 main {
-  transform: translateY(80px);
-  height: 100vh;
+  flex: 1 1 auto;
+  margin: 80px 0;
+  width: 100%;
+  height: 100%;
   background-color: rgb(233, 233, 233);
 }
 
 .stepper {
   display: flex;
-  justify-content: space-evenly;
   margin: 40px;
   padding: 20px;
   background-color: #fff;
+}
+.stepper-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .stepper .firstStep,
 .stepper .secondStep {
@@ -45,6 +52,35 @@ main {
 
 .form {
   display: flex;
+}
+
+.line {
+  height: 2px;
+  width: 25%;
+  margin: 0 20px;
+  background-color: rgb(38, 117, 197);
+}
+
+@media (max-width: 992px) {
+  .form {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .line {
+    width: 15%;
+  }
+}
+@media (max-width: 480px) {
+  .stepperText {
+    display: none;
+  }
+  .circle {
+    margin: 0 15px;
+  }
+  .line {
+    width: 25%;
+  }
 }
 
 /*# sourceMappingURL=Form.css.map */

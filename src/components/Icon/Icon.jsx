@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 
 import ReactIcon from './IconComponents/ReactIcon';
+import CrossIcon from './IconComponents/CrossIcon';
 
 const IconTypes = {
   React: ReactIcon,
+  Cross: CrossIcon,
 };
 
 const Icon = ({ type, fill, width, height, className }) => {

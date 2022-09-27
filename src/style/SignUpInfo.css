@@ -6,7 +6,7 @@
 }
 .signUpForm input {
   font-size: 20px;
-  height: 40px;
+  height: 50px;
   padding: 0 10px;
   margin: 5px 0;
   background-color: white;
@@ -29,6 +29,20 @@
   border: 2px solid rgb(38, 117, 197);
   border-radius: 3px;
   cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .signUpForm {
+    justify-content: center;
+    width: 60%;
+    margin-left: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .signUpForm {
+    width: 100%;
+    margin-top: 0;
+  }
 }
 
 /*# sourceMappingURL=SignUpInfo.css.map */

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {
@@ -15,7 +14,7 @@ import {
   password2Selector,
   passwordSelector,
   telSelector,
-} from '../../../store/selectors/search.selector';
+} from '../../../store/selectors/signUp.selector';
 import '../../../style/SignUpInfo.css';
 import { validation } from '../../../mock/validation';
 import {
@@ -33,8 +32,9 @@ import {
   setPassword2,
   setTel,
 } from '../../../store/actions/signUp/signUp.actions';
+import { setStep } from '../../../store/actions/form/form.actions';
 
-export const SignUpInfo = ({ setNumberOfStep }) => {
+export const SignUpInfo = () => {
   const dispatch = useDispatch();
   const tel = useSelector(telSelector);
   const email = useSelector(emailSelector);
@@ -63,20 +63,20 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
     }
   }, [isTelCorrect, isEmailCorrect, isPasswordCorrect, isPassword2Correct]);
 
-  const inputTypes = ['mobilePhone', 'email', 'password'];
+  const inputTypes = ['mobilePhone', 'email', 'password', 'password2'];
 
   const blurHandler = (e) => {
     switch (e.target.name) {
-      case 'mobilePhone':
+      case inputTypes[0]:
         dispatch(setIsTelDirty(true));
         break;
-      case 'email':
+      case inputTypes[1]:
         dispatch(setIsEmailDirty(true));
         break;
-      case 'password':
+      case inputTypes[2]:
         dispatch(setIsPasswordDirty(true));
         break;
-      case 'password2':
+      case inputTypes[3]:
         dispatch(setIsPassword2Dirty(true));
         break;
       default:
@@ -108,7 +108,10 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
   const passwordHandler = (e) => {
     dispatch(setPassword(e.target.value));
     const inputValue = String(e.target.value);
-    if (inputValue.length >= 8 && inputValue.length <= 20) {
+    if (
+      inputValue.length >= validation[inputTypes[2]].minLength &&
+      inputValue.length <= validation[inputTypes[2]].maxLength
+    ) {
       dispatch(setIsPasswordCorrect(true));
     } else {
       dispatch(setIsPasswordCorrect(false));
@@ -161,7 +164,7 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
       />
       <input
         type="password"
-        name={inputTypes[2] + 2}
+        name={inputTypes[3]}
         placeholder="Repeat password"
         required={validation[inputTypes[2]].required}
         onChange={(e) => passwordRepeatHandler(e)}
@@ -174,18 +177,10 @@ export const SignUpInfo = ({ setNumberOfStep }) => {
       <button
         disabled={!isSignUpValid}
         type="button"
-        onClick={() => setNumberOfStep('second')}
+        onClick={() => dispatch(setStep('second'))}
       >
         Next
       </button>
     </form>
   );
-};
-
-SignUpInfo.propTypes = {
-  setNumberOfStep: PropTypes.func,
-};
-
-SignUpInfo.defaultProps = {
-  setNumberOfStep: () => {},
 };

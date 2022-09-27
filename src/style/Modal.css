@@ -1,0 +1,45 @@
+.overlay {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.384);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay .modal {
+  padding: 30px;
+  position: relative;
+  background-color: #fff;
+  border: 2px solid rgb(38, 117, 197);
+  border-radius: 3px;
+}
+.overlay .modal .modalItem {
+  display: flex;
+}
+.overlay .modal .modalItem p {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.overlay .modal button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  top: -40px;
+  right: -70px;
+}
+
+@media (max-width: 480px) {
+  .overlay .modal button {
+    top: auto;
+    right: 45%;
+    bottom: -60px;
+  }
+}
+
+/*# sourceMappingURL=Modal.css.map */

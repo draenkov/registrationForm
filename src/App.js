@@ -1,22 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { Footer } from './components/Footer/Footer';
 import { Form } from './components/Form/Form';
+import { Header } from './components/Header/Header';
 import './style/App.css';
 
-const App = () => {
-  const executedRef = useRef(false);
+const App = () => (
+  <div className="App">
+    <Header />
+    <Form />
+    <Footer />
+  </div>
+);
 
-  useEffect(() => {
-    if (executedRef.current) {
-      return;
-    }
-
-    executedRef.current = true;
-  }, []);
-
-  return (
-    <div className="App">
-      <Form />
-    </div>
-  );
-};
 export default App;

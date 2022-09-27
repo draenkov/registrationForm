@@ -1,0 +1,20 @@
+header {
+  position: fixed;
+  background-color: rgb(38, 117, 197);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  .logo {
+    padding-left: 30px;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  h1 {
+    padding-left: 30px;
+    color: white;
+  }
+}
